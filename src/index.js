@@ -10,15 +10,15 @@ import ReactDOM from 'react-dom';
 //Class component
 class Welcome extends React.Component {
   render() {
-    return (<h1>Welcom {this.props.name}</h1>)
+    return (<h1>Welcome {this.props.name} and your employee id is {this.props.empid}</h1>)
   }
 }
 
 ReactDOM.render(
   <>
-    <Welcome name="Yushika" />,
-    <Welcome name="Kripa" />,
-    <Welcome name="Manish" />,
+    <Welcome name="Yushika" empid="1" />,
+    <Welcome name="Kripa" empid="2" />,
+    <Welcome name="Manish" empid="3j" />,
 
   </>,
 
