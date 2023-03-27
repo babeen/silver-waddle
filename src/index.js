@@ -1,26 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-//Creacting component
-//Function component
-// function Welcome(props) {
-//   return (<h1>Welcome {props.name}</h1>)
-// }
+class StateLifecycle extends React.Component {
 
-//Class component
-class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date
+    }
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    )
+  }
+
+  tick() {
+    this.setState({ date: new Date() });
+  }
   render() {
-    return (<h1>Welcome {this.props.name} and your employee id is {this.props.empid}</h1>)
+
+    return (<h1> {this.state.date.toString()}</h1 >)
   }
 }
 
 ReactDOM.render(
-  <>
-    <Welcome name="Yushika" empid="1" />,
-    <Welcome name="Kripa" empid="2" />,
-    <Welcome name="Manish" empid="3j" />,
-
-  </>,
-
+  <StateLifecycle />,
   document.getElementById('root')
 );
